@@ -1,0 +1,27 @@
+{% extends '/default/layout.html.twig' %}
+
+{% block title %}БлаБлаБлог{% endblock %}
+
+{% block content_header '' %}
+
+{% block content %}
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION') %}
+
+
+    {% for article in articles %}
+        <h1 class="title">Статейка #{{ article.id }}</h1>
+        <div class="clear-fix">
+            <h2 style="float:left">{{ article.title }}</h2>
+            <span style="float:right">{{ article.created|date('M/d/y') }}</span>
+        </div>
+
+        <p>{{ article.description }}<br>
+            <a href="../" class="sf-button sf-button-selected">
+                <span class="border-l">
+                    <span class="border-r">
+                        <span class="btn-bg">Назад</span>
+                    </span>
+                </span>
+            </a></p>
+    {% endfor %}
+{% endblock %}
