@@ -18,7 +18,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/article/create/", name="Creating new Article")
+     * @Route("/article/create/", name="article_create")
      */
     public function createAction()
     {
